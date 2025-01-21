@@ -35,7 +35,8 @@ SET StockQuantity = 0
 WHERE StockQuantity IS NULL;
 
 
---Analytics & Insights
+--Analytics & Insights--
+
 --Top 10 Selling Products
 
 SELECT 
@@ -49,19 +50,7 @@ GROUP BY P.ProductName, P.Category
 ORDER BY TotalUnitsSold DESC
 LIMIT 10;
 
---Store Performance by Revenue
-
-SELECT 
-    ST.StoreName,
-    ST.City,
-    SUM(S.QuantitySold * P.Price) AS TotalRevenue
-FROM Sales S
-JOIN Products P ON S.ProductID = P.ProductID
-JOIN Stores ST ON S.StoreID = ST.StoreID
-GROUP BY ST.StoreName, ST.City
-ORDER BY TotalRevenue DESC;
-
---Customer Segmentation by Spending
+--Customer Segmentation by Spending & Membership Type
 
 SELECT 
     C.CustomerID,
@@ -74,6 +63,19 @@ JOIN Products P ON S.ProductID = P.ProductID
 GROUP BY C.CustomerID, C.Name, C.MembershipType
 ORDER BY TotalSpent DESC;
 
+--Gender-Based Purchasing Behavior
+
+SELECT 
+    C.Gender,
+    P.Category,
+    SUM(S.QuantitySold) AS UnitsPurchased,
+    SUM(S.QuantitySold * P.Price) AS RevenueGenerated
+FROM Sales S
+JOIN Customers C ON S.CustomerID = C.CustomerID
+JOIN Products P ON S.ProductID = P.ProductID
+GROUP BY C.Gender, P.Category
+ORDER BY RevenueGenerated DESC;
+
 --Inventory Reorder Levels
 
 SELECT 
@@ -85,6 +87,19 @@ SELECT
         ELSE 'Sufficient Stock'
     END AS StockStatus
 FROM Products;
+
+--Inventory Turnover Ratio
+
+SELECT 
+    P.ProductID,
+    P.ProductName,
+    SUM(S.QuantitySold) AS TotalUnitsSold,
+    P.StockQuantity,
+    ROUND(SUM(S.QuantitySold) * 1.0 / P.StockQuantity, 2) AS InventoryTurnoverRatio
+FROM Sales S
+JOIN Products P ON S.ProductID = P.ProductID
+GROUP BY P.ProductID, P.ProductName, P.StockQuantity
+ORDER BY InventoryTurnoverRatio DESC;
 
 
 --Monthly Revenue Trends
@@ -108,7 +123,7 @@ GROUP BY P.Category
 ORDER BY TotalProfit DESC;
 
 
---3 Top Selling Products for each month
+--Top 3 best selling Products for each month
 WITH MonthlyRev AS (
     SELECT 
         EXTRACT(MONTH FROM saledate) AS mnth,
@@ -133,18 +148,6 @@ FROM RankedProducts
 WHERE row_num <= 3
 ORDER BY mnth, row_num;
 
---Trends in High-Spending Customers
-SELECT 
-    C.Name,
-    C.MembershipType,
-    COUNT(DISTINCT S.SaleID) AS TotalPurchases,
-    SUM(S.QuantitySold * P.Price) AS TotalSpent
-FROM Sales S
-JOIN Customers C ON S.CustomerID = C.CustomerID
-JOIN Products P ON S.ProductID = P.ProductID
-GROUP BY C.Name, C.MembershipType
-ORDER BY TotalSpent DESC
-LIMIT 10;
 
 --Sales by City
 SELECT 
@@ -155,3 +158,104 @@ JOIN Stores ST ON S.StoreID = ST.StoreID
 JOIN Products P ON S.ProductID = P.ProductID
 GROUP BY ST.City
 ORDER BY TotalRevenue DESC;
+
+--Store Performance by Revenue
+
+SELECT 
+    ST.StoreName,
+    ST.City,
+    SUM(S.QuantitySold * P.Price) AS TotalRevenue
+FROM Sales S
+JOIN Products P ON S.ProductID = P.ProductID
+JOIN Stores ST ON S.StoreID = ST.StoreID
+GROUP BY ST.StoreName, ST.City
+ORDER BY TotalRevenue DESC;
+
+--Peak Sales Days
+
+SELECT 
+    SaleDate,
+    COUNT(S.SaleID) AS NumberOfSales,
+    SUM(S.QuantitySold * P.Price) AS RevenueGenerated
+FROM Sales S
+JOIN Products P ON S.ProductID = P.ProductID
+GROUP BY SaleDate
+ORDER BY RevenueGenerated DESC;
+
+--	Running total of revenue by month
+SELECT 
+    EXTRACT(MONTH from saledate) AS mnth,
+    SUM(S.quantitysold * P.price) AS monthly_revenue,
+    SUM(SUM(S.quantitysold * P.price)) OVER (ORDER BY EXTRACT(MONTH from saledate)) AS running_total
+FROM Sales S
+JOIN Products P ON S.ProductID = P.ProductID
+GROUP BY mnth
+ORDER BY mnth;
+
+-- Monthly Cumulative sales for each product
+
+SELECT 
+	P.productid,
+    P.productname,
+    EXTRACT(MONTH from S.saledate) AS month,
+    SUM(S.quantitysold) AS monthly_sales,
+    SUM(SUM(S.quantitysold)) OVER (PARTITION BY P.productid ORDER BY  EXTRACT(MONTH from S.saledate)) AS cumulative_sales
+FROM Sales S
+JOIN Products P ON S.ProductID = P.ProductID
+GROUP BY P.productid, P.productname, EXTRACT(MONTH from S.saledate)
+ORDER BY  P.productid,month;
+
+-- Running 7 day average revenue
+SELECT 
+	SaleDate,
+    SUM(S.quantitysold * P.price) AS daily_revenue,
+    AVG(SUM(S.quantitysold * P.price)) OVER (ORDER BY SaleDate ROWS BETWEEN 6 PRECEDING AND CURRENT ROW) AS running_7_day_avg
+FROM Sales S
+JOIN Products P ON S.ProductID = P.ProductID
+GROUP BY SaleDate
+ORDER BY SaleDate;
+
+-- Weekly Revenue Trend
+SELECT 
+    DATE_TRUNC('week', saledate) AS week,
+    SUM(S.quantitysold) AS total_units_sold,
+    SUM(S.quantitysold * P.price) AS weekly_revenue
+FROM Sales S
+JOIN Products P ON S.ProductID = P.ProductID
+GROUP BY DATE_TRUNC('week', saledate)
+ORDER BY week;
+
+-- Best Selling Products by Quarter
+WITH quarterly_sales AS(
+SELECT 
+    DATE_TRUNC('quarter', saledate) AS quarter,
+    P.productid,
+    P.productname,
+    SUM(S.quantitysold) AS total_units_sold
+FROM Sales S
+JOIN Products P ON S.ProductID = P.ProductID
+GROUP BY DATE_TRUNC('quarter', saledate), P.productid, P.productname
+ORDER BY quarter
+),
+ranked_products AS (
+SELECT 
+    quarter,
+    productid,
+    productname,
+    total_units_sold,
+	RANK() OVER(PARTITION BY quarter ORDER BY total_units_sold DESC) as product_rank
+	FROM quarterly_sales
+)
+SELECT 
+    quarter,
+    productid,
+    productname,
+    total_units_sold,
+	product_rank
+FROM ranked_products
+WHERE product_rank<=3
+ORDER BY quarter, product_rank;
+
+
+
+

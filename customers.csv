@@ -1,0 +1,101 @@
+CustomerID,Name,Gender,Age,City,MembershipType
+1,Laura Campbell,Male,24,Montreal,Gold
+2,Anne Nelson,Female,33,Calgary,Silver
+3,Cynthia Dyer,Female,63,Calgary,Gold
+4,Christine Grant,Female,24,Montreal,Gold
+5,James Miller,Male,65,Ottawa,Silver
+6,Leonard Serrano,Female,62,Vancouver,Silver
+7,Samantha Long,Male,28,Calgary,Silver
+8,Christine Riggs,Female,64,Calgary,Gold
+9,Dana Ramos,Male,62,Toronto,Silver
+10,Jonathan Fitzgerald,Male,23,Toronto,Gold
+11,Erik Rogers,Female,42,Calgary,Silver
+12,Danielle Huff,Male,36,Ottawa,Platinum
+13,Jennifer Ramsey MD,Male,37,Toronto,Gold
+14,Joann Klein,Male,18,Ottawa,Platinum
+15,Jennifer Russell,Female,61,Toronto,Platinum
+16,Megan Zavala,Male,62,Calgary,Platinum
+17,Bill Flores,Male,32,Vancouver,Gold
+18,Jamie Brown,Male,48,Vancouver,Gold
+19,Mrs. Karen Berry DDS,Male,47,Calgary,Platinum
+20,Jay Lyons,Female,49,Ottawa,Platinum
+21,Jennifer Nelson,Female,31,Vancouver,Regular
+22,Jeffrey Lloyd,Female,49,Toronto,Gold
+23,Judith Wright,Female,57,Calgary,Gold
+24,Michelle Jefferson,Female,47,Vancouver,Platinum
+25,Kristin Price,Male,40,Vancouver,Silver
+26,Erica Jones,Male,53,Toronto,Regular
+27,Audrey Barnett,Male,63,Vancouver,Platinum
+28,Patricia Dawson,Female,38,Vancouver,Platinum
+29,Jorge Roman,Female,53,Vancouver,Gold
+30,Matthew Patterson,Female,50,Ottawa,Platinum
+31,Meghan White,Female,21,Ottawa,Silver
+32,Brandi Clark,Male,38,Toronto,Gold
+33,Brenda Clayton,Male,55,Calgary,Silver
+34,Logan Thomas,Male,32,Toronto,Regular
+35,Tonya Ortega,Male,23,Ottawa,Regular
+36,Robert Davidson,Female,62,Calgary,Platinum
+37,Mr. Jason Johnson,Female,39,Toronto,Regular
+38,Bryan Davis,Female,38,Toronto,Gold
+39,Amanda Williams,Male,39,Calgary,Silver
+40,Nancy Zavala,Female,61,Montreal,Regular
+41,Tamara Baker,Female,26,Calgary,Silver
+42,Kyle Barker,Male,63,Vancouver,Platinum
+43,Pamela Carr,Female,61,Toronto,Regular
+44,Emily Andrews,Female,42,Ottawa,Platinum
+45,Leah Bauer,Male,51,Vancouver,Silver
+46,Jared Myers,Female,54,Montreal,Platinum
+47,Shane Parks,Female,34,Toronto,Silver
+48,Elizabeth Roberts,Female,34,Montreal,Silver
+49,Walter Fitzpatrick,Female,62,Ottawa,Regular
+50,James Thomas,Male,27,Toronto,Gold
+51,Katherine Walters,Female,18,Calgary,Platinum
+52,Erika Dean,Male,47,Calgary,Platinum
+53,Gregory Everett,Female,47,Toronto,Silver
+54,Kayla Taylor,Male,42,Calgary,Gold
+55,Eric Brady,Male,61,Montreal,Regular
+56,Charles White MD,Female,31,Vancouver,Platinum
+57,Edwin Mason,Female,40,Calgary,Platinum
+58,Andrew Robinson,Male,46,Calgary,Platinum
+59,Michael Martin,Male,65,Montreal,Platinum
+60,Sue Woods,Female,56,Montreal,Silver
+61,Amy Gibson,Female,18,Toronto,Silver
+62,Nicole Collins,Male,21,Vancouver,Regular
+63,Brandon Murray,Male,37,Toronto,Platinum
+64,Jessica Cooper,Male,32,Toronto,Silver
+65,George Moore,Female,32,Toronto,Silver
+66,Robert Wells,Male,54,Ottawa,Silver
+67,Michelle Washington,Male,50,Montreal,Gold
+68,Brandi Johnson,Female,23,Ottawa,Gold
+69,Kara Clarke,Female,60,Vancouver,Gold
+70,Julie Moses PhD,Male,38,Calgary,Regular
+71,William Carter,Female,55,Ottawa,Platinum
+72,Ryan Jimenez,Male,22,Toronto,Regular
+73,Jasmin Hernandez,Female,55,Montreal,Silver
+74,Carolyn Horne,Male,32,Calgary,Gold
+75,Daniel Ward,Male,58,Vancouver,Regular
+76,Alyssa Medina,Female,26,Vancouver,Regular
+77,Joshua Marquez,Female,38,Calgary,Regular
+78,William Lewis,Female,42,Ottawa,Silver
+79,Heather Henry,Female,56,Toronto,Gold
+80,Stephanie Curry,Female,27,Toronto,Gold
+81,Amber Sanders,Female,55,Montreal,Regular
+82,Carl Moore,Male,32,Ottawa,Regular
+83,Jeffrey Gonzales,Male,51,Vancouver,Platinum
+84,Carmen Martinez,Female,31,Vancouver,Platinum
+85,Mr. Chad Griffin,Female,38,Ottawa,Platinum
+86,Emily Chan,Male,28,Vancouver,Silver
+87,Daniel Allen,Male,39,Ottawa,Platinum
+88,Kelly Reynolds,Male,44,Vancouver,Regular
+89,Ryan Taylor DDS,Male,58,Toronto,Silver
+90,Joann Johnson,Female,37,Ottawa,Platinum
+91,Debra Sherman,Male,50,Calgary,Platinum
+92,Janice Garcia,Male,65,Ottawa,Platinum
+93,Anne House,Male,22,Toronto,Platinum
+94,Mr. Michael Silva,Female,59,Ottawa,Silver
+95,Kyle Barrett,Female,20,Ottawa,Regular
+96,Carol Jones,Female,38,Calgary,Gold
+97,Brian Tucker,Female,43,Montreal,Gold
+98,Annette Blair,Female,24,Vancouver,Silver
+99,Emily Williams,Male,54,Calgary,Gold
+100,Stacey Good,Male,22,Montreal,Platinum

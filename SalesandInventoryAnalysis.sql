@@ -35,8 +35,8 @@ SET StockQuantity = 0
 WHERE StockQuantity IS NULL;
 
 
---Step 2: Aggregations
---2.1 Top 10 Selling Products
+--Analytics & Insights
+--Top 10 Selling Products
 
 SELECT 
     P.ProductName,
@@ -49,7 +49,7 @@ GROUP BY P.ProductName, P.Category
 ORDER BY TotalUnitsSold DESC
 LIMIT 10;
 
---2.2 Store Performance by Revenue
+--Store Performance by Revenue
 
 SELECT 
     ST.StoreName,
@@ -61,7 +61,7 @@ JOIN Stores ST ON S.StoreID = ST.StoreID
 GROUP BY ST.StoreName, ST.City
 ORDER BY TotalRevenue DESC;
 
---2.3 Customer Segmentation by Spending
+--Customer Segmentation by Spending
 
 SELECT 
     C.CustomerID,
@@ -74,8 +74,7 @@ JOIN Products P ON S.ProductID = P.ProductID
 GROUP BY C.CustomerID, C.Name, C.MembershipType
 ORDER BY TotalSpent DESC;
 
---Step 3: Advanced SQL Features
---3.1 Inventory Reorder Levels
+--Inventory Reorder Levels
 
 SELECT 
     ProductID,
@@ -88,7 +87,7 @@ SELECT
 FROM Products;
 
 
---3.3 Monthly Revenue Trends
+--Monthly Revenue Trends
 
 SELECT 
     TO_CHAR(S.SaleDate, 'YYYY-MM') AS Month,
@@ -98,7 +97,7 @@ JOIN Products P ON S.ProductID = P.ProductID
 GROUP BY TO_CHAR(S.SaleDate, 'YYYY-MM')
 ORDER BY Month;
 
---3.4 Top Categories by Profit
+--Top Categories by Profit
 
 SELECT 
     P.Category,
@@ -108,8 +107,8 @@ JOIN Products P ON S.ProductID = P.ProductID
 GROUP BY P.Category
 ORDER BY TotalProfit DESC;
 
---Step 4: Insights
---4.1 3 Top Selling Products for each month-
+
+--3 Top Selling Products for each month
 WITH MonthlyRev AS (
     SELECT 
         EXTRACT(MONTH FROM saledate) AS mnth,
@@ -134,7 +133,7 @@ FROM RankedProducts
 WHERE row_num <= 3
 ORDER BY mnth, row_num;
 
---4.1 Identify Trends in High-Spending Customers
+--Trends in High-Spending Customers
 SELECT 
     C.Name,
     C.MembershipType,
@@ -147,10 +146,7 @@ GROUP BY C.Name, C.MembershipType
 ORDER BY TotalSpent DESC
 LIMIT 10;
 
---4.2 Sales by City
-sql
-Copy
-Edit
+--Sales by City
 SELECT 
     ST.City,
     SUM(S.QuantitySold * P.Price) AS TotalRevenue

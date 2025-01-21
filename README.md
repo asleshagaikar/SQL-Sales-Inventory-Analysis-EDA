@@ -1,1 +1,2 @@
 # SQL-Sales-Inventory-Analysis-EDA
+This project analyzes sales and inventory data for a fictional retail clothing store chain using PostgreSQL. The objective is to derive actionable insights into product performance, customer behavior, inventory management, and store operations. By performing both basic and advanced SQL operations, this project showcases a comprehensive range of SQL skills, including data cleaning, aggregations, window functions, and advanced analytics.

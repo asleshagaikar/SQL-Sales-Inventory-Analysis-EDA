@@ -1,36 +1,73 @@
-# SQL-Sales-Inventory-Analysis-EDA
-This project analyzes sales and inventory data for a fictional retail clothing store chain using PostgreSQL. The objective is to derive actionable insights into product performance, customer behavior, inventory management, and store operations. By performing both basic and advanced SQL operations, this project showcases a comprehensive range of SQL skills, including data cleaning, aggregations, window functions, and advanced analytics.
+# Comprehensive Sales and Inventory Analysis using PostgreSQL - EDA
+This project provides a robust framework for performing data analysis on sales, inventory, and customer data stored in a PostgreSQL database. The SQL scripts implemented in this project offer insights into key performance indicators (KPIs), customer segmentation, product trends, and operational efficiency, enabling better business decision-making.
+
+The project showcases how to leverage SQL queries for data cleaning, aggregation, and advanced analytics, including running totals, cumulative sales, and time-based trends. It can be easily adapted to different datasets and industries to provide meaningful insights.
 
 
-Key Objectives:
-Analyze sales trends to identify top-selling products and revenue drivers.
-Monitor inventory levels to optimize stock and prevent shortages.
-Study customer purchasing behavior to segment customers and improve marketing strategies.
-Evaluate store performance to identify high-performing locations and areas for improvement.
-Generate insights into monthly sales trends and profit margins for better business decision-making.
+Key Features
+Data Cleaning:
+
+Identify and remove duplicate sales records.
+Impute missing product prices with the average price per category.
+Fill missing stock quantities with default values.
 
 
-Dataset:
-The dataset consists of four tables:
-Customers: Details about customers, including demographics and membership types.
-Products: Product inventory with pricing, categories, and stock levels.
-Sales: Transaction data including sales quantity, dates, and store locations.
-Stores: Information about store locations and management.
+Sales Insights:
+
+Top Selling Products: Identify the most popular products by units sold and revenue generated.
+Customer Segmentation: Analyze customer spending patterns by membership type.
+Gender-Based Trends: Understand purchasing behavior across product categories for different genders.
+Peak Sales Days: Identify the most profitable sales days.
 
 
-SQL Operations Highlights:
-Top Selling Products Per Month: Using ROW_NUMBER() to identify the top 3 products for each month based on revenue.
-Inventory Reorder Analysis: Identifying low-stock products and recommending restocking actions.
-Customer Segmentation: Grouping customers by spending levels and membership types for loyalty rewards.
-Store Revenue Performance: Ranking stores by their total revenue to guide operational strategies.
-Monthly Revenue Trends: Analyzing seasonal trends to align marketing efforts with peak sales periods.
+Inventory Management:
+
+Analyze inventory levels and flag products for reorder.
+Calculate inventory turnover ratios for better stock management.
+
+
+Time-Based Trends:
+
+Monthly revenue trends.
+Weekly revenue patterns.
+Best-selling products by quarter.
+
+
+Advanced Analytics:
+
+Calculate running totals of revenue by month.
+Compute cumulative sales for each product over time.
+Analyze running 7-day average revenue trends.
+Store and City-Level Performance:
+
+
+Data Model:
+
+
+The project uses a relational data model with the following key tables:
+
+Customers: Customer information, including demographics and membership type.
+Products: Product details, including price, cost, and stock quantity.
+Sales: Transaction data, including quantity sold, sale date, and associated product and customer IDs.
+Stores: Store information, including name and location.
 
 
 Skills Demonstrated:
+
+
 Data Cleaning: Removal of duplicates, handling null values, and ensuring data consistency.
 Joins: Combining data across multiple tables for holistic analysis.
 Aggregations: Summarizing data using functions like SUM, AVG, and COUNT.
 Window Functions: Using ROW_NUMBER() and RANK() to rank top-selling products.
 Subqueries and CTE: Efficiently calculating metrics like customer lifetime value.
 Case Statements: Categorizing data for easier interpretation (e.g., low stock status).
+
+Technologies Used:
+
+
+Database: PostgreSQL
+Query Language: SQL
+Dataset: Simulated data for customers, products, sales, and stores.
+
+
 

@@ -6,7 +6,7 @@ The project showcases how to leverage SQL queries for data cleaning, aggregation
 
 Key Features:
 
-Data Cleaning:
+1) Data Cleaning:
 
 Identify and remove duplicate sales records.
 
@@ -15,7 +15,7 @@ Impute missing product prices with the average price per category.
 Fill missing stock quantities with default values.
 
 
-Sales Insights:
+2) Sales Insights:
 
 Top Selling Products: Identify the most popular products by units sold and revenue generated.
 
@@ -26,14 +26,14 @@ Gender-Based Trends: Understand purchasing behavior across product categories fo
 Peak Sales Days: Identify the most profitable sales days.
 
 
-Inventory Management:
+3) Inventory Management:
 
 Analyze inventory levels and flag products for reorder.
 
 Calculate inventory turnover ratios for better stock management.
 
 
-Time-Based Trends:
+4) Time-Based Trends:
 
 Monthly revenue trends.
 
@@ -42,7 +42,7 @@ Weekly revenue patterns.
 Best-selling products by quarter.
 
 
-Advanced Analytics:
+5) Advanced Analytics:
 
 Calculate running totals of revenue by month.
 
@@ -53,7 +53,7 @@ Analyze running 7-day average revenue trends.
 Store and City-Level Performance:
 
 
-Data Model:
+**Data Model:
 
 The project uses a relational data model with the following key tables:
 
@@ -66,22 +66,22 @@ Sales: Transaction data, including quantity sold, sale date, and associated prod
 Stores: Store information, including name and location.
 
 
-Skills Demonstrated:
+**Skills Demonstrated:
 
-Data Cleaning: Removal of duplicates, handling null values, and ensuring data consistency.
+1)Data Cleaning: Removal of duplicates, handling null values, and ensuring data consistency.
 
-Joins: Combining data across multiple tables for holistic analysis.
+2)Joins: Combining data across multiple tables for holistic analysis.
 
-Aggregations: Summarizing data using functions like SUM, AVG, and COUNT.
+3)Aggregations: Summarizing data using functions like SUM, AVG, and COUNT.
 
-Window Functions: Using ROW_NUMBER() and RANK() to rank top-selling products.
+4)Window Functions: Using ROW_NUMBER() and RANK() to rank top-selling products.
 
-Subqueries and CTE: Efficiently calculating metrics like customer lifetime value.
+5)Subqueries and CTE: Efficiently calculating metrics like customer lifetime value.
 
-Case Statements: Categorizing data for easier interpretation (e.g., low stock status).
+6)Case Statements: Categorizing data for easier interpretation (e.g., low stock status).
 
 
-Technologies Used:
+**Technologies Used:
 
 Database: PostgreSQL, 
 Query Language: SQL, 

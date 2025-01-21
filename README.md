@@ -4,7 +4,7 @@ This project provides a robust framework for performing data analysis on sales, 
 The project showcases how to leverage SQL queries for data cleaning, aggregation, and advanced analytics, including running totals, cumulative sales, and time-based trends. It can be easily adapted to different datasets and industries to provide meaningful insights.
 
 
-Key Features
+Key Features:\n
 Data Cleaning:
 
 Identify and remove duplicate sales records.

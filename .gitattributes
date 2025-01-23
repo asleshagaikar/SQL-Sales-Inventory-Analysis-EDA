@@ -1,0 +1,2 @@
+# Set the default language for .sql files to SQL
+*.sql linguist-language=SQL
